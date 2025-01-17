@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    height: 45px;
+}
+
+.logo {
+    background-image: url('../assets/favicon-16x16.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 25px;
+}
+
+.navbar-center {
+    align-items: center;
+    margin-right: 35%;
+}
+
+@media screen and (max-width: 790px) {
+    .navbar-center {
+        align-items: center;
+        margin-right: 18%;
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 390px) {
+    .navbar-center {
+        align-items: center;
+        margin-right: 18%;
+        font-size: 0.7em;
+    }
+}
