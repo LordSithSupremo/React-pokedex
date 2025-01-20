@@ -7,7 +7,7 @@ export class Header extends Component {
         return (
         <nav className='navbar'>
             <div className='navbar-left'>
-                <img className='logo' src='#' alt='logo'></img>
+                {/* <img className='logo' src='../assets/favicon-16x16.png' alt='logo'></img> */}
             </div>
             <div className='navbar-center'>
                 <h3>Faça uma busca pelo seu Pokémon favorito!</h3>

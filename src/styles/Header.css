@@ -9,10 +9,7 @@
 
 .logo {
     background-image: url('../assets/favicon-16x16.png');
-    background-attachment: fixed;
     background-repeat: no-repeat;
-    width: 40px;
-    height: 25px;
 }
 
 .navbar-center {

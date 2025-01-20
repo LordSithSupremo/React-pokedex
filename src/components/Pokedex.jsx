@@ -8,6 +8,7 @@ const Pokedex = () => {
         const [pokemonName, setPokemonName] = useState('Carregando busca...');
         const [pokemonNumber, setPokemonNumber] = useState('');
         const [pokemonImage, setPokemonImage] = useState('');
+        const [pokemonInfo, setPokemonInfo] = useState('');
         const [searchPokemon, setSearchPokemon] = useState(1);
         const [inputValue, setInputValue] = useState('');
 
@@ -31,15 +32,18 @@ const Pokedex = () => {
             const data = await fetchPokemon(pokemon);
 
             if (data) {
-                setPokemonImage(data.sprites.versions['generation-v']['black-white'].animated.front_default);
+                setPokemonImage(data.sprites.front_default);
                 setPokemonName(data.name);
                 setPokemonNumber(data.id);
+                setPokemonInfo(data['types']['0']['type']['name']);
                 setInputValue('');
                 setSearchPokemon(data.id);
             } else {
                 setPokemonImage('');
                 setPokemonName('Pokémon não encontrado');
                 setPokemonNumber('');
+                setPokemonInfo('');
+                setInputValue('');
             }
         };
 
@@ -76,20 +80,22 @@ const Pokedex = () => {
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Digite o nome ou número do Pokémon"
                     />
-                    <button type="submit">Buscar</button>
                 </form>
 
                 <div className="pokedex-visor">
-                    <div className="pokemon-info">
-                        <h2 className="pokemon_name">{pokemonName}</h2>
-                        <p className="pokemon_number">{pokemonNumber}</p>
+                    <div className="pokemon_data">
+                        <span className="align_info">
+                            <h3 className="pokemon_number">{pokemonNumber}#</h3>
+                            <h2 className="pokemon_name">{pokemonName}</h2>
+                        </span>
                         {pokemonImage && <img className="pokemon_img" src={pokemonImage} alt={pokemonName} />}
+                        <div className="info">{pokemonInfo}</div>
                     </div>
                 </div>
 
                 <div className="buttons">
-                    <button className="btn-before" onClick={handlePrev}>Anterior</button>
-                    <button className="btn-after" onClick={handleNext}>Próximo</button>
+                    <button className="button" onClick={handlePrev}>Anterior</button>
+                    <button className="button" onClick={handleNext}>Próximo</button>
                 </div>
             </div>
         </>
